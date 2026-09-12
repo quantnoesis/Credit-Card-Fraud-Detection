@@ -63,4 +63,4 @@ Even without knowing what the anonymized `V1`–`V28` features represent, the pa
 - 📝 Dev.to: *https://dev.to/mustabin_neha_/credit-card-fraud-detection-1k9h*
 
 ## Author
-Neha-building a data analytics portfolio at the intersection of finance/accounting and Python.
+Neha - building a data analytics portfolio at the intersection of finance/accounting and Python.
