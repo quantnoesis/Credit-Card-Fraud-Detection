@@ -8,13 +8,13 @@ The goal isn't to build a fraud-detection model-it's to explore the data through
 This is part of an ongoing portfolio of data analytics projects combining a finance/accounting background with hands-on Python skills.
 
 ## Dataset
-- **Source:** [Kaggle—mlg-ulb/creditcardfraud](https://www.kaggle.com/mlg-ulb/creditcardfraud)
+- **Source:** [Kaggle-mlg-ulb/creditcardfraud](https://www.kaggle.com/mlg-ulb/creditcardfraud)
 - **Size:** 284,807 rows, 31 columns
 - **Key columns:**
   - `Time`seconds elapsed since the first transaction in the dataset
   - `Amount`transaction amount
   - `V1`–`V28`anonymized features (result of a PCA transformation, original details withheld for confidentiality)
-  - `Class`—target label (0 = normal, 1 = fraud)
+  - `Class` target label (0 = normal, 1 = fraud)
 - **Note:** The raw CSV is not included in this repo due to size and licensing. Download it directly from the Kaggle link above and place it in the project root as `creditcard.csv`.
 
 ## Tools & Environment
