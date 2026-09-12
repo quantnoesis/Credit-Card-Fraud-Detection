@@ -11,9 +11,9 @@ This is part of an ongoing portfolio of data analytics projects combining a fina
 - **Source:** [Kaggle—mlg-ulb/creditcardfraud](https://www.kaggle.com/mlg-ulb/creditcardfraud)
 - **Size:** 284,807 rows, 31 columns
 - **Key columns:**
-  - `Time`—seconds elapsed since the first transaction in the dataset
-  - `Amount`—transaction amount
-  - `V1`–`V28`—anonymized features (result of a PCA transformation, original details withheld for confidentiality)
+  - `Time`seconds elapsed since the first transaction in the dataset
+  - `Amount`transaction amount
+  - `V1`–`V28`anonymized features (result of a PCA transformation, original details withheld for confidentiality)
   - `Class`—target label (0 = normal, 1 = fraud)
 - **Note:** The raw CSV is not included in this repo due to size and licensing. Download it directly from the Kaggle link above and place it in the project root as `creditcard.csv`.
 
@@ -35,16 +35,16 @@ credit-card-fraud-eda/
 ```
 
 ## Analysis Steps
-1. **Data loading & inspection**—checked structure, types, and null values with `df.info()` and `df.describe()`.
-2. **Class imbalance check**—quantified how rare fraud is (~0.17% of all transactions).
-3. **Fraud vs. normal transaction counts** — bar chart comparing class frequencies.
-4. **Transaction amount distribution**—histogram comparing fraud vs. normal amounts (log scale, since fraud counts are tiny).
-5. **Time-of-day pattern (raw count)**—converted `Time` into hour-of-day and checked whether fraud clusters at certain hours.
-6. **Time-of-day pattern (normalized rate)**—divided fraud count by total transaction volume per hour, since raw counts conflate risk with volume. This is what confirmed hour 2 as a genuine high-risk window rather than just a high-traffic one.
-7. **Correlation analysis**—identified which anonymized features (`V1`–`V28`) correlate most strongly with the fraud label.
+1. **Data loading & inspection** checked structure, types, and null values with `df.info()` and `df.describe()`.
+2. **Class imbalance check** quantified how rare fraud is (~0.17% of all transactions).
+3. **Fraud vs. normal transaction counts** bar chart comparing class frequencies.
+4. **Transaction amount distribution** histogram comparing fraud vs. normal amounts (log scale, since fraud counts are tiny).
+5. **Time-of-day pattern (raw count)** converted `Time` into hour-of-day and checked whether fraud clusters at certain hours.
+6. **Time-of-day pattern (normalized rate)** divided fraud count by total transaction volume per hour, since raw counts conflate risk with volume. This is what confirmed hour 2 as a genuine high-risk window rather than just a high-traffic one.
+7. **Correlation analysis** identified which anonymized features (`V1`–`V28`) correlate most strongly with the fraud label.
 
 ## Key Findings
-- **Class imbalance:** Fraud accounted for just **0.173%** of all transactions (492 fraud vs. 284,315 normal, out of 284,807 total)—a textbook needle-in-a-haystack problem.
+- **Class imbalance:** Fraud accounted for just **0.173%** of all transactions (492 fraud vs. 284,315 normal, out of 284,807 total) a textbook needle-in-a-haystack problem.
 - **Amount pattern:** Fraudulent transactions cluster tightly at low dollar amounts and essentially disappear above a few thousand dollars, while normal transactions spread across the full range up to $25,000+. Fraud in this dataset favors small, easy-to-miss amounts rather than big-ticket theft.
 - **Time-of-day pattern:** Raw fraud counts looked highest around hours 2 and 11, but that can just reflect transaction volume—so we normalized by computing the fraud **rate** per hour instead. That correction changed the story: **hour 2 has a fraud rate of 1.71%**, roughly **10x the overall average** of 0.173%, confirming it as a genuinely high-risk window rather than a volume artifact. **Hour 4** is also elevated at **1.04%** (~6x average). Hour 11, despite its high raw count, drops to a much more modest **0.31% rate** once normalized—still slightly above average, but far less dramatic than the count chart suggested. The safest hours are **hour 10** (0.048%) and **hour 22** (0.058%), both well below average.
 - **Correlation with fraud:** The anonymized features most positively correlated with the `Class` label are **V11** (0.155), **V4** (0.133), and **V2** (0.091). The strongest negative correlations are **V17** (−0.326), **V14** (−0.303), and **V12** (−0.261)—meaning low values on these three features are the strongest signal of fraud in this dataset.
