@@ -59,8 +59,8 @@ Even without knowing what the anonymized `V1`–`V28` features represent, the pa
 4. Run all cells top to bottom.
 
 ## Related Write-Up
-- 📝 Medium: *(link once published)*
-- 📝 Dev.to: *(link once published)*
+- 📝 Medium: *https://medium.com/@nehamustabin/credit-card-fraud-detection-464b73e09b06*
+- 📝 Dev.to: *https://dev.to/mustabin_neha_/credit-card-fraud-detection-1k9h*
 
 ## Author
 Neha — building a data analytics portfolio at the intersection of finance/accounting and Python.
