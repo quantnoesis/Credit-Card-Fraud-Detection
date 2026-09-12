@@ -1,4 +1,4 @@
-# Credit Card Fraud Detection-Exploratory Data Analysis
+# Credit Card Fraud Detection - Exploratory Data Analysis
 
 ## Overview
 This project explores the [Credit Card Fraud Detection dataset](https://www.kaggle.com/mlg-ulb/creditcardfraud) from Kaggle, which contains 284,807 anonymized European credit card transactions made over two days in September 2013. Only 492 of these transactions (0.17%) are fraudulent, making this a highly imbalanced, real-world dataset.
